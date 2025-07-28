@@ -6,7 +6,7 @@ export const GenerativeController = {
     try {
       const { prompt } = req.body;
 
-      const resp = await GeminiService.generateText({ prompt }, GeminiService);
+      const resp = await GeminiService.generateText(prompt, GeminiService);
       res.json({
         statusCode: 200,
         status: "success",
@@ -23,7 +23,7 @@ export const GenerativeController = {
     try {
       const { prompt } = req.body;
 
-      const docBase64 = req.file.buffer.toString("base64");
+      const docBase64 = req.file.buffer?.toString("base64");
 
       const resp = await GeminiService.generateWithFile(
         prompt ?? defaultPrompt("file"),
@@ -47,10 +47,10 @@ export const GenerativeController = {
     try {
       const { prompt } = req.body;
 
-      const imageBase64 = req.file.buffer.toString("base64");
+      const imageBase64 = req.file.buffer?.toString("base64");
 
       const resp = await GeminiService.generateWithFile(
-        prompt ?? defaultPrompt("image"),
+        prompt || defaultPrompt("image"),
         req.file.mimetype,
         imageBase64
       );
@@ -70,10 +70,10 @@ export const GenerativeController = {
     try {
       const { prompt } = req.body;
 
-      const audioBase64 = req.file.buffer.toString("base64");
+      const audioBase64 = req.file.buffer?.toString("base64");
 
       const resp = await GeminiService.generateWithFile(
-        prompt ?? defaultPrompt("audio"),
+        prompt || defaultPrompt("audio"),
         req.file.mimetype,
         audioBase64
       );

@@ -12,7 +12,7 @@ export const GeminiService = {
  async generateWithFile(prompt, mimeType, base64 ) {
     const resp = await ai.models.generateContent({
       model: GEMINI_MODEL,
-      contents: [{ text: prompt }, { inlineData: { mimeType, data: base64 } }],
+      contents: [{ text: prompt }, { inlineData: { mimeType: mimeType, data: base64 } }],
     });
     return resp;
   },
