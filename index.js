@@ -6,7 +6,7 @@ import multer from "multer"
 
 const app= express()
 const upload = multer()
-const ai= await GoogleGenAI({apiKey: process.env.GOOGLE_API_KEY})
+const ai= new GoogleGenAI({apiKey: process.env.GOOGLE_API_KEY})
 
 // Set Default Model Gemini
 const GEMINI_MODEL= "gemini-2.5-flash"
@@ -22,9 +22,9 @@ app.listen(PORT, () => {
 const extractText= (resp) => {
     try {
         const text=
-            resp?.response?.candidates?.[0]?.contenst?.part?.[0]?.text ?? 
-            resp?.candidates?.[0]?.contenst?.part?.[0]?.text ??
-            resp?.response?.candidates?.[0]?.contenst?.text
+            resp?.response?.candidates?.[0]?.contet?.parts?.[0]?.text ?? 
+            resp?.candidates?.[0]?.content?.parts?.[0]?.text ??
+            resp?.response?.candidates?.[0]?.content?.text
 
         return text ?? JSON.stringify(resp, null, 2)
 
@@ -34,3 +34,32 @@ const extractText= (resp) => {
         return  JSON.stringify(resp, null, 2)
     }
 }
+
+app.post("/generate-text", async (req, res) => {
+    
+    try {
+
+        const {prompt}= req.body
+
+        const resp= await ai.models.generateContent({
+            model: GEMINI_MODEL,
+            contents : prompt,
+        })
+
+        res.json({
+            statusCode: 200,
+            status:"success",
+            result:extractText(resp)
+        })
+        
+    } catch (error) {
+        
+        res.status(500).json({
+            statusCode: 500,
+            status: "error",
+            error: error.message
+        })
+        
+    }
+
+})
