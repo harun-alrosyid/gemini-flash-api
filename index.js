@@ -121,3 +121,36 @@ app.post("/generate-from-file", upload.single("file"), async (req, res) => {
     });
   }
 });
+
+app.post("/generate-from-audio", upload.single("audio"), async (req, res) => {
+  try {
+    const { prompt } = req.body;
+
+    const audioBase64 = req.file.buffer.toString("base64");
+
+    const resp = await ai.models.generateContent({
+      model: GEMINI_MODEL,
+      contents: [
+        { text: prompt ?? "Transcrpt this audio file" },
+        {
+          inlineData: {
+            mimeType: req.file.mimetype,
+            data: audioBase64,
+          },
+        },
+      ],
+    });
+
+    res.json({
+      statusCode: 200,
+      status: "success",
+      result: extractText(resp),
+    });
+  } catch (error) {
+    res.status(500).json({
+      statusCode: 500,
+      status: "error",
+      error: error.message,
+    });
+  }
+});
