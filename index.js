@@ -63,3 +63,43 @@ app.post("/generate-text", async (req, res) => {
     }
 
 })
+
+app.post("/generate-from-image", upload.single("image"), async (req, res) => {
+    
+    try {
+
+        const {prompt}= req.body
+
+        const imageBase64= req.file.buffer.toString("base64")
+
+        const resp= await ai.models.generateContent({
+            model: GEMINI_MODEL,
+            contents : [
+                {text:prompt},
+                {inlineData:
+                    {
+                        mimeType: req.file.mimetype, 
+                        data: imageBase64
+                    }
+                }
+            
+            ],
+        })
+
+        res.json({
+            statusCode: 200,
+            status:"success",
+            result:extractText(resp)
+        })
+        
+    } catch (error) {
+        
+        res.status(500).json({
+            statusCode: 500,
+            status: "error",
+            error: error.message
+        })
+        
+    }
+
+})
