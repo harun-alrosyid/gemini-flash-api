@@ -6,7 +6,7 @@ export const GenerativeController = {
     try {
       const { prompt } = req.body;
 
-      const resp = await GeminiService.generateText(prompt, GeminiService);
+      const resp = await GeminiService.generateText(prompt);
       res.json({
         statusCode: 200,
         status: "success",
@@ -77,6 +77,28 @@ export const GenerativeController = {
         req.file.mimetype,
         audioBase64
       );
+
+      res.json({
+        statusCode: 200,
+        status: "success",
+        result: extractText(resp),
+      });
+    } catch (err) {
+      res
+        .status(500)
+        .json({ statusCode: 500, status: "error", error: err.message });
+    }
+  },
+
+  async generateChat(req, res) {
+    try {
+      const { message } = req.body;
+
+      if (!Array.isArray(message)) {
+        throw new Error("Message must be an array");
+      }
+
+      const resp = await GeminiService.generateChat(message);
 
       res.json({
         statusCode: 200,

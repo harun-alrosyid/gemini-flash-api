@@ -16,21 +16,21 @@ const storage = multer.memoryStorage({
     cb(null, uploadDir);
   },
   filename: function (req, file, cb) {
-    console.log("Received file:", file); 
+    console.log("Received file:", file);
 
     if (!file.originalname) {
       return cb(new Error("Missing originalname in uploaded file"), "");
     }
 
     const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
-    const ext = path.extname(file.originalname??"new File");
+    const ext = path.extname(file.originalname ?? "new File");
     const filename = file.fieldname + "-" + uniqueSuffix + ext;
 
     cb(null, filename);
   },
 });
 
-const upload = multer({ storage })
+const upload = multer({ storage });
 
 router.post("/generate-text", GenerativeController.generateText);
 router.post(
@@ -48,5 +48,6 @@ router.post(
   upload.single("audio"),
   GenerativeController.generateFromAudio
 );
+router.post("/chat", GenerativeController.generateChat);
 
 export default router;
