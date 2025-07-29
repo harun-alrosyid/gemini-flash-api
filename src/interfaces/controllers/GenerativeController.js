@@ -103,7 +103,7 @@ export const GenerativeController = {
       res.json({
         statusCode: 200,
         status: "success",
-        result: extractText(resp),
+        result: [{ role: "assistant", content: extractText(resp) }],
       });
     } catch (err) {
       res
