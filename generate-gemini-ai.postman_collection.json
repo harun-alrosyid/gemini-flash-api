@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"prompt\":\"Explain what the earth rotation\"\n}",
+					"raw": "{\n    \"prompt\":\"Tell me about world\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -41,7 +41,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"prompt\":\"Explain what the earth rotation\"\n}",
+							"raw": "{\n    \"prompt\":\"Explain about gemini ai\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -99,6 +99,99 @@
 			]
 		},
 		{
+			"name": "Generate Chat",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"message\":[{\n        \"role\":\"user\",\n        \"content\":\"How are ai\"\n    }]\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/api/chat",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"chat"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Generate Chat",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"message\":[{\n        \"role\":\"user\",\n        \"content\":\"How are ai\"\n    }]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3003/api/chat",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3003",
+							"path": [
+								"api",
+								"chat"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "5842"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"16d2-9SWCw4Rmqu6XrPPIhpMR/Kzhlz4\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 29 Jul 2025 15:17:17 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 200,\n    \"status\": \"success\",\n    \"result\": \"{\\n  \\\"sdkHttpResponse\\\": {\\n    \\\"headers\\\": {\\n      \\\"alt-svc\\\": \\\"h3=\\\\\\\":443\\\\\\\"; ma=2592000,h3-29=\\\\\\\":443\\\\\\\"; ma=2592000\\\",\\n      \\\"content-encoding\\\": \\\"gzip\\\",\\n      \\\"content-type\\\": \\\"application/json; charset=UTF-8\\\",\\n      \\\"date\\\": \\\"Tue, 29 Jul 2025 15:17:17 GMT\\\",\\n      \\\"server\\\": \\\"scaffolding on HTTPServer2\\\",\\n      \\\"server-timing\\\": \\\"gfet4t7; dur=11745\\\",\\n      \\\"transfer-encoding\\\": \\\"chunked\\\",\\n      \\\"vary\\\": \\\"Origin, X-Origin, Referer\\\",\\n      \\\"x-content-type-options\\\": \\\"nosniff\\\",\\n      \\\"x-frame-options\\\": \\\"SAMEORIGIN\\\",\\n      \\\"x-xss-protection\\\": \\\"0\\\"\\n    }\\n  },\\n  \\\"candidates\\\": [\\n    {\\n      \\\"content\\\": {\\n        \\\"parts\\\": [\\n          {\\n            \\\"text\\\": \\\"That's a great question, and it can be interpreted in a few ways! Let's break down \\\\\\\"how are AIs\\\\\\\" from different angles:\\\\n\\\\n---\\\\n\\\\n### 1. How AIs are **Doing** (Current State of Development):\\\\n\\\\nAIs are doing remarkably well, advancing at an astonishing pace. We are in a period of rapid innovation, often referred to as an \\\\\\\"AI boom.\\\\\\\"\\\\n\\\\n*   **Rapid Progress:** New breakthroughs, especially in areas like large language models (LLMs) and generative AI (text-to-image, text-to-video), are happening constantly. Models are becoming more capable, more efficient, and more accessible.\\\\n*   **Widespread Adoption:** AI is no longer just in labs. It's integrated into our daily lives through smartphones, search engines, recommendation systems, customer service chatbots, and increasingly, creative tools.\\\\n*   **Intense Research & Competition:** There's a global race among tech giants, startups, and academic institutions to develop more powerful and versatile AI systems.\\\\n*   **Increased Focus on Ethics & Safety:** As AI becomes more powerful, there's a growing awareness and effort to address concerns like bias, misinformation, privacy, job displacement, and the safe deployment of advanced AI.\\\\n\\\\n---\\\\n\\\\n### 2. How AIs **Work** (Simplified Technical Explanation):\\\\n\\\\nAt their core, AIs (specifically modern machine learning AIs) work by:\\\\n\\\\n1.  **Data Collection:** Gathering massive amounts of relevant data (text, images, sounds, numbers).\\\\n2.  **Training:** Feeding this data into complex algorithms, often based on \\\\\\\"neural networks\\\\\\\" (inspired by the human brain). During this phase, the AI learns to identify patterns, relationships, and features within the data. It adjusts its internal parameters (like weights and biases) to minimize errors in its predictions or outputs.\\\\n3.  **Inference/Prediction:** Once trained, the AI can be given new, unseen data and use the patterns it learned to make predictions, generate responses, or perform tasks.\\\\n\\\\n**Think of it like this:**\\\\n\\\\n*   **A child learning to recognize cats:** You show the child thousands of pictures, some with cats, some without. You point out the cats. Eventually, the child learns what a cat looks like and can identify a new cat they've never seen before.\\\\n*   **An AI learning language:** You feed it trillions of words from books, articles, websites. It learns grammatical structures, common phrases, facts, and how words relate to each other. Then, it can generate coherent text, answer questions, or summarize documents.\\\\n\\\\n---\\\\n\\\\n### 3. How AIs **Function** (Capabilities & Limitations):\\\\n\\\\n**Capabilities (What they CAN do):**\\\\n\\\\n*   **Understand & Generate Language:** Write articles, code, summarize text, translate, answer questions, engage in conversations (like me!).\\\\n*   **Image & Video Processing:** Recognize objects, generate realistic images/videos from text prompts, enhance photos, deepfakes.\\\\n*   **Data Analysis & Prediction:** Find insights in large datasets, predict stock prices, diagnose diseases, recommend products.\\\\n*   **Automation:** Control robots, manage logistics, automate customer service.\\\\n*   **Problem Solving:** Play complex games (Go, Chess), optimize routes, design molecules.\\\\n\\\\n**Limitations (What they CAN'T do / Where they struggle):**\\\\n\\\\n*   **No True Consciousness/Sentience:** AIs do not have feelings, consciousness, personal experiences, or self-awareness. They don't \\\\\\\"understand\\\\\\\" in the human sense; they process patterns and statistics.\\\\n*   **Lack of Common Sense:** They often struggle with general knowledge that humans acquire naturally through life experience.\\\\n*   **Bias:** If trained on biased data, the AI will learn and perpetuate those biases.\\\\n*   **\\\\\\\"Hallucinations\\\\\\\":** They can confidently generate factually incorrect or nonsensical information.\\\\n*   **Fragility:** Small changes in input can sometimes lead to wildly different or incorrect outputs.\\\\n*   **Dependence on Data:** They are only as good as the data they were trained on. They don't \\\\\\\"learn\\\\\\\" in the same flexible, adaptive way humans do.\\\\n*   **Energy Intensive:** Training large AI models requires enormous amounts of computational power and energy.\\\\n\\\\n---\\\\n\\\\nIn summary, AIs are incredibly powerful and rapidly evolving tools that are transforming many aspects of our world. They are built on complex algorithms and vast amounts of data, excelling at pattern recognition and prediction. However, it's crucial to remember that they are tools and do not possess human-like consciousness, understanding, or feelings.\\\"\\n          }\\n        ],\\n        \\\"role\\\": \\\"model\\\"\\n      },\\n      \\\"finishReason\\\": \\\"STOP\\\",\\n      \\\"index\\\": 0\\n    }\\n  ],\\n  \\\"modelVersion\\\": \\\"gemini-2.5-flash\\\",\\n  \\\"usageMetadata\\\": {\\n    \\\"promptTokenCount\\\": 4,\\n    \\\"candidatesTokenCount\\\": 969,\\n    \\\"totalTokenCount\\\": 2103,\\n    \\\"promptTokensDetails\\\": [\\n      {\\n        \\\"modality\\\": \\\"TEXT\\\",\\n        \\\"tokenCount\\\": 4\\n      }\\n    ],\\n    \\\"thoughtsTokenCount\\\": 1130\\n  }\\n}\"\n}"
+				}
+			]
+		},
+		{
 			"name": "Generate From Image",
 			"request": {
 				"method": "POST",
@@ -109,11 +202,11 @@
 						{
 							"key": "image",
 							"type": "file",
-							"src": "/Users/harunalrosyid/Downloads/day-3-wave.jpg"
+							"src": "/Users/harunalrosyid/Downloads/VB_WS_New_250425.webp"
 						},
 						{
 							"key": "prompt",
-							"value": "Discribe this image",
+							"value": "tell aboaut image",
 							"type": "text"
 						}
 					]
@@ -220,17 +313,23 @@
 							"key": "file",
 							"type": "file",
 							"src": "/Users/harunalrosyid/Downloads/Profile.pdf"
+						},
+						{
+							"key": "prompt",
+							"value": "tes",
+							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "http://localhost:3003/generate-from-file",
+					"raw": "http://localhost:3003/api/generate-from-file",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "3003",
 					"path": [
+						"api",
 						"generate-from-file"
 					]
 				}
